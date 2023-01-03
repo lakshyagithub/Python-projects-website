@@ -16,4 +16,11 @@ root.configure(background="White")
 label1 = Label(root, bg="white", font=(15), fg="green")
 label1.pack()
 
+class game:
+    def __init__(self):
+        self.__score = 0
+    def updateGame(self):
+        self.text = ["blue", "green", "yellow"]
+        self.random_color = 
+
 root.mainloop()
