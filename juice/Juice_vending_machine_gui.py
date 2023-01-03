@@ -21,6 +21,18 @@ logo_shop_img = ImageTk.PhotoImage(Image.open("logo.png"))
 logo_shop = Label(gui, image=logo_shop_img, bg="orange2")
 logo_shop.place(relx=0.2, rely=0.4, anchor=CENTER)
 
+apple_img = ImageTk.PhotoImage(Image.open("apple_img.png"))
+mango_img = ImageTk.PhotoImage(Image.open("mango_img.png"))
+orange_img = ImageTk.PhotoImage(Image.open("orange.png"))
+
+fruit_img = Label(gui, bg="orange2")
+fruit_img.place(relx=0.75, rely=0.8, anchor=CENTER)
+
+label_name = Label(gui, text="Select fruit", bg="orange2", font=("Bahnschrift Light", 15))
+label_name.place(relx=0.96, rely=0.2, anchor=E)
+
+
+
 class juice:
     def __init__(self, fruit_name, qty1):
         self.fruit_name = fruit_name
