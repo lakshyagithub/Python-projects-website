@@ -33,6 +33,7 @@ label_name.place(relx=0.96, rely=0.2, anchor=E)
 
 
 
+
 class juice:
     def __init__(self, fruit_name, qty1):
         self.fruit_name = fruit_name
