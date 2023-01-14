@@ -10,6 +10,7 @@ import random
 
 count = 0
 while (count < 10):
+    count = count+1
     main_url = "https://bing.com/?q="
     word_meaning = " meaning"
     a_to_j = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "Laptop", "PC", "Windows", "Internet"]
