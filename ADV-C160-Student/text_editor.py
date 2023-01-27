@@ -8,6 +8,7 @@ root = Tk()
 root.title("Lakshya's Text editor - No file open")
 root.minsize(600, 500)
 root.maxsize(600, 500)
+root.configure(bg="sky blue")
 
 save_img = ImageTk.PhotoImage(Image.open("save.png"))
 open_file_img = ImageTk.PhotoImage(Image.open("open.png"))
@@ -56,11 +57,11 @@ def exit_file():
     root.destroy()
 
 
-open_button=Button(root, image=open_file_img, command=open_file)
+open_button=Button(root, image=open_file_img, command=open_file, bg="light green", fg="white", bd=0)
 open_button.place(relx=0.05,rely=0.1,anchor=CENTER)
-save_button=Button(root, image=save_img, command=save_file)
+save_button=Button(root, image=save_img, command=save_file, bg="light green", fg="white", bd=0)
 save_button.place(relx=0.11,rely=0.1,anchor= CENTER)
-exit_button=Button(root, image=exit_img, command=exit_file)
+exit_button=Button(root, image=exit_img, command=exit_file, bg="light green", fg="white", bd=0)
 exit_button.place(relx=0.17,rely=0.1,anchor= CENTER)
 
 root.mainloop()
