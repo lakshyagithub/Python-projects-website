@@ -22,8 +22,24 @@ def saveData():
     encryption_text_data.delete(1.0, END)
     messagebox.showinfo("Success", "Successfully, saved your file!")
     
+    
+    
 def open_file_prompt():
-    text_file1 = filedialog.askopenfilename()
+    global file_name_entry
+    global decryption_text_data
+    
+    text_file = filedialog.askopenfilename(title="Select a text file (.txt)",
+                                         filetypes=(("Text documents",
+                                                     "*.txt"), ))
+    name = os.path.basename(text_file)
+    read1 = open(text_file, "r")
+    paragraph = read1.read()
+    byte_str = bytes.fromhex(paragraph)
+    orginal1 = decrypt("Python_is_the_best", byte_str)
+    final_data = orginal1.decode("utf-8")
+    decryption_text_data.insert(END, final_data)
+    text_file.close()
+    
 
 def startDecryption():
     global file_name_entry
