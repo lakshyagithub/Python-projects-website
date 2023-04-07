@@ -4,12 +4,15 @@ from tkinter import filedialog
 from tkinter import messagebox
 import os
 import webbrowser
+import openai
 
 root = Tk()
 root.title("HTML editor - No file open")
 root.config(background="sky blue")
 root.minsize(600, 500)
 root.maxsize(600, 500)
+
+openai.api_key = "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"
 
 save_img = ImageTk.PhotoImage(Image.open("save1.png"))
 open_file_img = ImageTk.PhotoImage(Image.open("open1.png"))
@@ -25,7 +28,7 @@ my_text = Text(root, height=20, width=60, background="grey", fg="white")
 my_text.place(relx=0.5, rely=0.55, anchor=CENTER)
 
 name = ""
-
+code = ""
 
 def open_file():
   global name
@@ -60,6 +63,10 @@ def run_file():
   global name
   webbrowser.open(name)
 
+def autocom():
+  global code
+  code = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": my_text.get("1.0", END)}])
+  my_text.insert(END, code.choices[0].message.content)
 
 open_button = Button(root, image=open_file_img, command=open_file)
 open_button.place(relx=0.05, rely=0.1, anchor=CENTER)
@@ -67,5 +74,7 @@ save_button = Button(root, image=save_img, command=save_file)
 save_button.place(relx=0.11, rely=0.1, anchor=CENTER)
 exit_button = Button(root, image=debug_img, command=run_file)
 exit_button.place(relx=0.17, rely=0.1, anchor=CENTER)
+autocom_btn = Button(root, text="Autopilot", command=autocom)
+autocom_btn.place(relx=0.25, rely=0.1, anchor=CENTER)
 
 root.mainloop()
